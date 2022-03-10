@@ -1,7 +1,16 @@
 const url = require("url");
 
 const { URL } = url;
-const myURL = new URL("https://github.com/KIMGEON88");
+const myURL = new URL(
+  "https://www.gilbut.co.kr/book/booklist.aspx?sercate1=001001000#anchor"
+);
 
 console.log("new URL():", myURL);
 console.log("url.format():", url.format(myURL));
+console.log("-----------------------------------------------");
+
+const parseUrl = url.parse(
+  "http://gitbut.co.kr/book/bookList.aspx?sercate1=001001000#anchor"
+);
+console.log("url.parse():", parseUrl);
+console.log("url.format():", url.format(parseUrl));

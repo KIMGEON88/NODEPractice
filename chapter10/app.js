@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const session = require("express-session");
 const nunjucks = require("nunjucks");
 const dotenv = require("dotenv");
+const v1 = require("./routes/v1");
 
 dotenv.config();
 const authRouter = require("./routes/auth");
@@ -46,6 +47,7 @@ app.use(
     },
   })
 );
+app.use("/v1", v1);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -68,3 +70,5 @@ app.use((err, req, res, next) => {
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기중");
 });
+// 도메인 주소    	타입	 클라이언트 비밀키
+// localhost:4000	free	3ee0750a-eb71-422a-89d8-9ef1c567aab6
